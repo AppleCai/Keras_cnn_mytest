@@ -113,8 +113,6 @@ for i in range(num):
 imgs = np.hstack(image_conv)
 cv2.imshow("Dense_1_my", imgs)
 
-imgs_pool=[]
-
 pool1_layer_model = Model(inputs=model.input, outputs=model.get_layer('Dense_2_my').output)
 out = pool1_layer_model.predict(myimage)
 print(out.shape)
@@ -123,6 +121,5 @@ out = out.reshape(64,14,14)
 for i in range(64):
     image_conv2.append(out[i,:,:].reshape(14,14))
 imgs2 = np.hstack(image_conv2)
-imgs_pool.append(imgs2)
 cv2.imshow("Dense_2_my", imgs2)
 cv2.waitKey(0)
